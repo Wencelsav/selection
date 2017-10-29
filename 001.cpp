@@ -19,7 +19,7 @@ void selectionSort(int *a, int n)
 	}
 }
 
-bool read_numbers(int *a, unsigned int n)
+bool read_numbers(int *a, int n)
 {
 	string string;
 	getline(cin, string);
@@ -36,7 +36,7 @@ bool read_numbers(int *a, unsigned int n)
 }
 
 int main() {
-	unsigned int n;
+	int n;
 	int *a;
 	cin >> n;
 	cin.get();
