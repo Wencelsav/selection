@@ -50,6 +50,6 @@ int main() {
 	else {
 		cout << "An error has occured while reading input data.";
 	}
-	cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+	cin.ignore(numeric_limits<streamsize>::max(), '\n');
 	return 0;
 }
