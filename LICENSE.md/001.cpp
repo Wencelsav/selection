@@ -5,10 +5,8 @@ using namespace std;
 void insertionSort(int *, int); 
  
 int main(int argc, char* argv[])
-{
-    
-    setlocale(LC_ALL, "rus");
-    
+{  
+   
     int size_array; 
     cin >> size_array;
  
@@ -28,7 +26,6 @@ int main(int argc, char* argv[])
     }
     
     delete [] sorted_array;
-    system("pause");
     return 0;
 }
  
