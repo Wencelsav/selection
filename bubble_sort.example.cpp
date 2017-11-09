@@ -3,54 +3,60 @@
 #include <ctime>
 using namespace std;
  
-void bubbleSort(int *, int); // прототип функции сортировки пузырьком
+
+
  
-int main(int argc, char* argv[])
+void bubbleSort(int* a, int n)
 {
-    srand(time(NULL));
-    setlocale(LC_ALL, "rus");
-    cout << "Введите размер массива: ";
-    int size_array; // длинна массива
-    cin >> size_array;
+ int temp = 0; 
+ bool exit = false; 
  
-    int *sorted_array = new int [size_array]; // одномерный динамический массив
-    for (int counter = 0; counter < size_array; counter++)
-    {
-        sorted_array[counter] = rand() % 100; // заполняем массив случайными числами
-        cout << setw(2) << sorted_array[counter] << "  "; // вывод массива на экран
-    }
-    cout << "\n\n";
- 
-    bubbleSort(sorted_array, size_array); // вызов функции сортировки пузырьком
- 
-    for (int counter = 0; counter < size_array; counter++)
-    {
-        cout << setw(2) << sorted_array[counter] << "  "; // печать отсортированного массива
-    }
-    cout << "\n";
- 
-    system("pause");
-    return 0;
-}
- 
-void bubbleSort(int* arrayPtr, int length_array) // сортировка пузырьком
-{
- int temp = 0; // временная переменная для хранения элемента массива
- bool exit = false; // болевая переменная для выхода из цикла, если массив отсортирован
- 
- while (!exit) // пока массив не отсортирован
+ while (!exit) 
  {
   exit = true;
-  for (int int_counter = 0; int_counter < (length_array - 1); int_counter++) // внутренний цикл
-    //сортировка пузырьком по возрастанию - знак >
-    //сортировка пузырьком по убыванию - знак <
-    if (arrayPtr[int_counter] > arrayPtr[int_counter + 1]) // сравниваем два соседних элемента
+  for (int int_counter = 0; int_counter < (n - 1); int_counter++)
+   
+    if (a[int_counter] > a[int_counter + 1]) 
     {
-     // выполняем перестановку элементов массива
-     temp = arrayPtr[int_counter];
-     arrayPtr[int_counter] = arrayPtr[int_counter + 1];
-     arrayPtr[int_counter + 1] = temp;
-     exit = false; // на очередной итерации была произведена перестановка элементов
+    
+     temp = a[int_counter];
+     a[int_counter] = a[int_counter + 1];
+     a[int_counter + 1] = temp;
+     exit = false; 
     }
  }
+}
+bool read_numbers(int *a, int n)
+{
+	string string;
+	getline(cin, string);
+	istringstream stream(string);
+	bool success = true;
+	for (int i = 0; i < n; ++i) {
+		if (!(stream >> a[i])) {
+			success = false;
+			break;
+		}
+	}
+
+	return success;
+}
+
+int main() {
+	int n;
+	int *a;
+	cin >> n;
+	cin.get();
+	a = new int[n];
+	if (read_numbers(a, n)) {
+		bubbleSort(a, n);
+		for (int i = 0; i < n; i++) {
+			cout << a[i] << " ";
+		}
+	}
+	else {
+		cout << "An error has occured while reading input data.";
+	}
+	
+	return 0;
 }
