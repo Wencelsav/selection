@@ -1,26 +1,17 @@
-
-
 #include <iostream>
 #include <iomanip>
 #include <sstream>
 using namespace std;
 
-
-
-
 void bubbleSort(int* a, int n)
 {
-
 	bool exit = false;
-
 	while (!exit)
 	{
 		exit = true;
 		for (int i = 0; i < (n - 1); i++)
-
 			if (a[i] > a[i + 1])
 			{
-
 				swap(a[i], a[i + 1]);
 				exit = false;
 			}
