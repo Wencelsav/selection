@@ -36,16 +36,16 @@ void qs(int *s_arr, int first, int last) {
     }
 }
 int main() {
-    unsigned int size;
-    string s;
+    int size=0;
+    if ((cin>>size) && (size>1)){
+        string s;   
     getline(cin, s);
-    if (size>1){
         istringstream stream(s);
 
         int * a = new int[size];
         if (read(a, size)) {
             qs(a,0,size);
-            for (unsigned int i = 0; i < size; ++i) {
+            for (int i = 0; i < size; ++i) {
                 cout << a[i] << " ";
             }
         }
