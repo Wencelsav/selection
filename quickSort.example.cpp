@@ -1,10 +1,20 @@
 #include <iostream>
-#include <iomanip>
-using namespace std;
- 
+#include <sstream>
 
-void qs(int *s_arr, int first, int last)
-{
+using namespace std;
+bool read(int * a, unsigned int size) {
+    string stroka;
+    getline(cin, stroka);
+    istringstream stream(stroka);
+    for (unsigned int i = 0; i < size; ++i) {
+        if (!(stream >> a[i])) {
+
+            return false;
+        }
+    }
+    return true;
+}
+void qs(int *s_arr, int first, int last) {
     if (first < last)
     {
         int left = first, right = last, middle = s_arr[(left + right) / 2];
@@ -25,37 +35,23 @@ void qs(int *s_arr, int first, int last)
         qs(s_arr, left, last);
     }
 }
-    bool read_numbers(int *a, int n)
-{
-	string string;
-	getline(cin, string);
-	istringstream stream(string);
-	bool success = true;
-	for (int i = 0; i < n; ++i) {
-		if (!(stream >> a[i])) {
-			success = false;
-			break;
-		}
-	}
-
-	return success;
-}
-
 int main() {
-	int n;
-	int *a;
-	cin >> n;
-	cin.get();
-	a = new int[n];
-	if (read_numbers(a, n)) {
-		qs(a,0,n);
-		for (int i = 0; i < n; i++) {
-			cout << a[i] << " ";
-		}
-	}
-	else {
-		cout << "An error has occured while reading input data.";
-	}
-	
-	return 0;
+    unsigned int size;
+    string s;
+    getline(cin, s);
+    if (size>1){
+        istringstream stream(s);
+
+        int * a = new int[size];
+        if (read(a, size)) {
+            qs(a,0,size);
+            for (unsigned int i = 0; i < size; ++i) {
+                cout << a[i] << " ";
+            }
+        }
+        else cout << "An error has occured while reading input data." << endl;
+        delete[] a;
+    }
+    else cout << "An error has occured while reading input data." << endl;
+    return 0;
 }
