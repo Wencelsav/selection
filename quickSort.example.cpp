@@ -1,7 +1,7 @@
 #include <iostream>
 #include <sstream>
-
 using namespace std;
+
 bool read(int * a, unsigned int size) {
     string stroka;
     getline(cin, stroka);
@@ -37,10 +37,9 @@ void qs(int *s_arr, int first, int last) {
 int main() {
     int size=0;
     if ((cin>>size) && (size>1)){
-        string s;   
-    getline(cin, s);
+        string s;
+        getline(cin, s);
         istringstream stream(s);
-
         int * a = new int[size];
         if (read(a, size)) {
             qs(a,0,size);
