@@ -8,7 +8,6 @@ bool read(int * a, unsigned int size) {
     istringstream stream(stroka);
     for (unsigned int i = 0; i < size; ++i) {
         if (!(stream >> a[i])) {
-
             return false;
         }
     }
