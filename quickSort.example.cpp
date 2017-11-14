@@ -42,7 +42,7 @@ int main() {
         istringstream stream(s);
         int * a = new int[size];
         if (read(a, size)) {
-            qs(a,0,size);
+            qs(a,0,size-1);
             for (int i = 0; i < size; ++i) {
                 cout << a[i] << " ";
             }
